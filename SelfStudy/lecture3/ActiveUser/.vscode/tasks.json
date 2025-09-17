@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run ActiveUser",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/ActiveUser.cpp",
+        "-o",
+        "bin/activeuser.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "run ActiveUser",
+      "type": "shell",
+      "dependsOn": "build and run ActiveUser",
+      "command": "${workspaceFolder}/bin/activeuser.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
+
+

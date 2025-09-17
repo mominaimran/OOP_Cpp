@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run TeacherApp",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/Teacher.cpp",
+        "-o",
+        "bin/teacherapp.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "run TeacherApp",
+      "type": "shell",
+      "dependsOn": "build and run TeacherApp",
+      "command": "${workspaceFolder}/bin/teacherapp.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
