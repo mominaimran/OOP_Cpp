@@ -48,14 +48,15 @@ int main() {
     }
 
     setColor(11); 
-    cout << "\n--- Surgeons Data ---\n";
+    cout << "---------------------  Surgeons Data  ---------------------\n";
     Beep(1200, 300); 
     setColor(14); 
     cout << left << setw(5) << "No."
          << setw(20) << "Name"
          << setw(10) << "Age"
-         << setw(10) << "Salary" << "\n";
-    cout << "---------------------------------------------\n";
+         << setw(10) << "Salary"
+         << setw(20) << "Specialization" << "\n";
+    cout << "-----------------------------------------------------------\n";
     setColor(7); 
 
     int count = 1;
@@ -63,7 +64,8 @@ int main() {
         cout << left << setw(5) << count
              << setw(20) << s.getName()
              << setw(10) << s.getAge()
-             << setw(10) << s.getSalary() << "\n";
+             << setw(10) << s.getSalary()
+             << setw(20) << s.getSpec() << "\n";
         Beep(800, 100); 
         count++;
     }

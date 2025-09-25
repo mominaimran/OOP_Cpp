@@ -10,7 +10,7 @@ int main() {
     s1.getData();
     s2.getData();
 
-    ofstream outFile("Surgeon.txt", ios::binary);
+    ofstream outFile("Surgeon.txt", ios::binary | ios::app);
     outFile.write(reinterpret_cast<char*>(&s1), sizeof(s1));
     outFile.write(reinterpret_cast<char*>(&s2), sizeof(s2));
     outFile.close();
