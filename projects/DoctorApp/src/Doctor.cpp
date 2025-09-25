@@ -1,35 +1,30 @@
 #include "Doctor.h"
 #include <iostream>
-#include <string>
-
 using namespace std;
 
-Doctor::Doctor(string n, string s, int i){
-    name = n;
-    specialization = s;
-    salary = i;
+Doctor::Doctor(){
+    name = "N/A";
+    age = 0;
 }
 
-void Doctor::getDets(){
+void Doctor::getData(){
     cout << "Enter name: ";
     getline(cin, name);
-
-    cout << "Enter specialization: ";
-    getline(cin, specialization);
-
-    cout << "Enter salary: ";
-    cin >> salary;
-
+    cout << "Enter age: ";
+    cin >> age;
     cin.ignore();
 }
 
-void Doctor::displayDets(){
-    cout << "--- Doctor Info ---" << endl;
+void Doctor::ShowData(){
     cout << "Name: " << name << endl;
-    cout << "Specialization: " << specialization << endl;
-    cout << "Salary: " << salary << endl;
+    cout << "Age:" << age << endl;
 }
 
-Doctor::~Doctor(){
-    cout << "Destructor is called" << endl;
+string Doctor::getName(){
+    return name;
 }
+
+int Doctor::getAge(){
+    return age;
+}
+
