@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run StudentApp",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/student.cpp",
+        "src/result.cpp",
+        "-o",
+        "bin/studentapp.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "run StudentApp",
+      "type": "shell",
+      "dependsOn": "build and run StudentApp",
+      "command": "bin/studentapp.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
