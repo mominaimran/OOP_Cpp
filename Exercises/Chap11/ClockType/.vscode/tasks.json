@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run ClockType",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/clockType.cpp",
+        "src/extClockType.cpp",
+        "-o",
+        "bin/clocktype.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+
+    {
+      "label": "run ClockType",
+      "type": "shell",
+      "dependsOn": "build and run ClockType",
+      "command": "${workspaceFolder}/bin/clocktype.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
