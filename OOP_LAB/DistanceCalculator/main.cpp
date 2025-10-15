@@ -1,6 +1,43 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include "Distance.h"
 using namespace std;
+
+// 🎨 COLORS
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define BOLD    "\033[1m"
+
+// 💫 BOX UTILITY FUNCTION
+void printBoxed(string title, string color = CYAN) {
+    string border(38, '=');
+    cout << color << "\n" << border << RESET << endl;
+    cout << BOLD << color << title << RESET << endl;
+    cout << color << border << "\n" << RESET;
+}
+
+// ⚙️ Continuous spinner animation
+void spinner(string message, int durationMs = 2000) {
+    const char spinChars[] = {'|', '/', '-', '\\'};
+    int spinCount = sizeof(spinChars) / sizeof(spinChars[0]);
+
+    cout << BLUE << message << " " << RESET;
+    auto start = chrono::steady_clock::now();
+
+    while (chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() < durationMs) {
+        for (int i = 0; i < spinCount; ++i) {
+            cout << "\b" << BLUE << spinChars[i] << RESET << flush;
+            this_thread::sleep_for(chrono::milliseconds(150));
+        }
+    }
+    cout << "\b " << endl; // clears last spinner char
+}
 
 int main() {
     Distance d1, d2, result;
@@ -8,78 +45,83 @@ int main() {
     int choice;
     char again;
 
-    cout << "\n--- Simple Distance Calculator ---" << endl;
+    printBoxed("SIMPLE DISTANCE CALCULATOR");
 
     do {
-        cout << "\nEnter first distance:\n";
+        cout << YELLOW << "\nEnter First Distance:\n" << RESET;
         cin >> d1;
 
-        cout << "\nChoose an operation(1-5):\n";
-        cout << "1. Add another distance (+)\n";
-        cout << "2. Subtract another distance (-)\n";
-        cout << "3. Multiply by a number (*)\n";
-        cout << "4. Divide by a number (/)\n";
-        cout << "5. Compare two distances (<, >, ==)\n";
-        cout << "6. Exit\n";
+        printBoxed("Choose an Operation", MAGENTA);
 
-        cout << "Enter choice: ";
+        cout << MAGENTA
+             << " 1. Add another distance (+)\n"
+             << " 2. Subtract another distance (-)\n"
+             << " 3. Multiply by a number (*)\n"
+             << " 4. Divide by a number (/)\n"
+             << " 5. Compare two distances (<, >, ==)\n"
+             << " 6. Exit\n"
+             << RESET;
+
+        cout << CYAN << "Enter your choice(1-6): " << RESET;
         cin >> choice;
+
+        printBoxed("Processing...", BLUE);
+        spinner("Please wait", 2000); // ⏳ Continuous visible spinner
 
         switch (choice) {
         case 1:
-            cout << "\nEnter second distance:\n";
-            cin >> d2; //d2.getDist();
+            cout << YELLOW << "\nEnter second distance:\n" << RESET;
+            cin >> d2;
             result = d1 + d2;
-            cout << "\nResult: " << result << endl; //overload insertion op
+            cout << GREEN << "\nResult: " << result << RESET << endl;
             break;
 
         case 2:
-            cout << "\nEnter second distance:\n";
+            cout << YELLOW << "\nEnter second distance:\n" << RESET;
             cin >> d2;
             result = d1 - d2;
-            cout << "\nResult: " << result << endl;
+            cout << GREEN << "\nResult: " << result << RESET << endl;
             break;
 
         case 3:
-            cout << "\nEnter number to multiply: ";
+            cout << CYAN << "\nEnter number to multiply: " << RESET;
             cin >> scalar;
             result = d1 * scalar;
-            cout << "\nResult: ";
-            result.showDist();
+            cout << GREEN << "\nResult: " << result << RESET << endl;
             break;
 
         case 4:
-            cout << "\nEnter number to divide: ";
+            cout << CYAN << "\nEnter number to divide: " << RESET;
             cin >> scalar;
             result = d1 / scalar;
-            cout << "\nResult: " << result << endl;
+            cout << GREEN << "\nResult: " << result << RESET << endl;
             break;
 
         case 5:
-            cout << "\nEnter second distance:\n";
+            cout << YELLOW << "\nEnter second distance:\n" << RESET;
             cin >> d2;
-            cout << "\nComparison Result: ";
+            cout << MAGENTA << "\nComparison Result: " << RESET;
             if (d1 == d2)
-                cout << "Both are equal." << endl;
+                cout << GREEN << "Both are equal." << RESET << endl;
             else if (d1 < d2)
-                cout << "First distance is smaller." << endl;
+                cout << BLUE << "First distance is smaller." << RESET << endl;
             else
-                cout << "First distance is greater." << endl;
+                cout << RED << "First distance is greater." << RESET << endl;
             break;
 
         case 6:
-            cout << "\nExiting program..." << endl;
+            printBoxed("Exiting Program... Goodbye!", RED);
             return 0;
 
         default:
-            cout << "\nInvalid choice! Try again..." << endl;
+            cout << RED << "\nInvalid choice! Try again..." << RESET << endl;
         }
 
-        cout << "\nDo you want to perform another operation? (y/n): ";
+        cout << CYAN << "\nDo you want to perform another operation? (y/n): " << RESET;
         cin >> again;
 
     } while (again == 'y' || again == 'Y');
 
-    cout << "\nThanks for using Distance Calculator!\n";
+    printBoxed("Thanks for using Distance Calculator!", GREEN);
     return 0;
 }
