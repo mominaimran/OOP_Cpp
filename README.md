@@ -29,5 +29,5 @@ This repository contains all my **OOP in C++** work — including lab tasks, pra
 
 **Momina Imran**  
 Full Stack Developer | Problem Solver 💫  
-📍 IIUI, Islamabad  
+📍 IIU, Islamabad  
 💬 *“Write code that even your future self will thank you for.”*
