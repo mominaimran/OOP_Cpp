@@ -1,7 +1,6 @@
 # 🧠 Object-Oriented Programming (OOP) in C++
 
 This repository contains all my **OOP in C++** work — including lab tasks, practice programs, and small projects.  
-It’s meant to help students and beginners easily understand OOP concepts through clean, well-structured code examples.
 
 ---
 
