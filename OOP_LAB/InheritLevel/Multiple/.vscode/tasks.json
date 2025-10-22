@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run Multiple",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/Student.cpp",
+        "src/Employee.cpp",
+        "src/Manager.cpp",
+        "-o",
+        "bin/multiple.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "run Multiple",
+      "type": "shell",
+      "dependsOn": "build and run Multiple",
+      "command": "bin/multiple.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
