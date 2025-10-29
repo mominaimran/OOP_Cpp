@@ -1,8 +1,9 @@
 #include "Person.h"
+#include <limits>
 
 void Person::getName(){
     cout << "Enter name: ";
-    cin >> name;
+    getline(cin >> ws, name);
 }
 
 void Person::putName(){

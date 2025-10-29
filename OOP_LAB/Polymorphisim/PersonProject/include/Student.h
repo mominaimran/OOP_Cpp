@@ -8,6 +8,8 @@ private:
     float gpa;
 
 public:
+    Student(float g=0.0);
+    float getGPAValue() const { return gpa; }
     void getData();      // no override keyword
     bool isOutstanding(); 
 };

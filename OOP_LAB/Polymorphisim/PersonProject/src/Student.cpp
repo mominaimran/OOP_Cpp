@@ -1,6 +1,8 @@
 #include "Student.h"
-#include <iostream>
-using namespace std;
+
+Student::Student(float g) {
+    gpa = g;
+}
 
 void Student::getData() {
     getName();

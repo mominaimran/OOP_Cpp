@@ -8,6 +8,8 @@ class Person{
     protected:
         string name;
     public:
+        string getNameValue() const { return name; }
+
         void getName();
         void putName();
 
