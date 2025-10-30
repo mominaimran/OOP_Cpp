@@ -2,16 +2,16 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build and run Task4",
+      "label": "build and run StudentApp",
       "type": "shell",
       "command": "D:/MSYS2/ucrt64/bin/g++.exe",
       "args": [
         "-g",
         "-Iinclude",
         "main.cpp",
-        "src/Counter.cpp",
+        "src/Student.cpp",
         "-o",
-        "bin/task4.exe"
+        "bin/studentapp.exe"
       ],
       "group": {
         "kind": "build",
@@ -20,10 +20,10 @@
       "problemMatcher": ["$gcc"]
     },
     {
-      "label": "run Task4",
+      "label": "run StudentApp",
       "type": "shell",
-      "dependsOn": "build and run Task4",
-      "command": "${workspaceFolder}/bin/task4.exe",
+      "dependsOn": "build and run StudentApp",
+      "command": "bin/studentapp.exe",
       "group": {
         "kind": "test",
         "isDefault": true
