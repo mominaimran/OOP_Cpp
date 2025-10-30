@@ -1,0 +1,17 @@
+===== Student Info =====
+Name: Momina, GPA: 4
+Marks: 
+90 
+80 
+89 
+97 
+100 
+
+===== Student Info =====
+Name: Zoon, GPA: 4
+Marks: 
+89 
+90 
+98 
+100 
+98 
