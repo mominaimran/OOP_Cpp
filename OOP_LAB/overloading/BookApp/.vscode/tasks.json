@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build and run BinaryApp",
+      "label": "build and run BookApp",
       "type": "shell",
       "command": "D:/MSYS2/ucrt64/bin/g++.exe",
       "args": [
@@ -11,7 +11,7 @@
         "main.cpp",
         "src/Book.cpp",
         "-o",
-        "bin/binaryapp.exe"
+        "bin/bookapp.exe"
       ],
       "group": {
         "kind": "build",
@@ -21,10 +21,10 @@
     },
 
     {
-      "label": "run BinaryApp",
+      "label": "run BookApp",
       "type": "shell",
-      "dependsOn": "build and run BinaryApp",
-      "command": "${workspaceFolder}/bin/binaryapp.exe",
+      "dependsOn": "build and run BookApp",
+      "command": "${workspaceFolder}/bin/bookapp.exe",
       "group": {
         "kind": "test",
         "isDefault": true

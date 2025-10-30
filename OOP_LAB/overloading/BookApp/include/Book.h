@@ -19,7 +19,6 @@ class Book{
         friend istream& operator>>(istream &in, Book &b2);
         friend ostream& operator<<(ostream &out, const Book &b2);
 
-        //Binary operator
 };
 
 #endif

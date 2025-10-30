@@ -15,3 +15,21 @@ Marks:
 98 
 100 
 98 
+
+===== Student Info =====
+Name: Maheen , GPA: 3
+Marks: 
+78 
+89 
+79 
+90 
+89 
+
+===== Student Info =====
+Name: Zara, GPA: 4
+Marks: 
+100 
+89 
+85 
+90 
+100 

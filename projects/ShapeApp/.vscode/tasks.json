@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run ShapeApp",
+      "type": "shell",
+      "command": "D:/MSYS2/ucrt64/bin/g++.exe",
+      "args": [
+        "-g",
+        "-Iinclude",
+        "main.cpp",
+        "src/Shape.cpp",
+        "src/TwoDimensionalShape.cpp",
+        "src/ThreeDimensionalShape.cpp",
+        "src/Circle.cpp",
+        "src/Square.cpp",
+        "src/Triangle.cpp",
+        "src/Cube.cpp",
+        "src/Tetrahedron.cpp",
+        "src/Sphere.cpp",
+        "-o",
+        "bin/shapeapp.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "run ShapeApp",
+      "type": "shell",
+      "dependsOn": "build and run ShapeApp",
+      "command": "${workspaceFolder}/bin/shapeapp.exe",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}
